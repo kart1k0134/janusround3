@@ -60,6 +60,37 @@ The requirements were:
 - SoftwareSerial
 
 
+##task 2
+# Live 3D GPS Data Plotter via Web Serial API
+
+This project provides a simple and effective way to read GPS data from a serial device (like an Arduino with a GPS module) directly in your web browser and visualize it in real-time on interactive 2D and 3D plots. It utilizes the modern Web Serial API for device communication and Plotly.js for powerful data visualization.
+
+## Features
+
+-   **Driverless Connectivity**: Uses the Web Serial API, so no special drivers or software are needed on the host computer. [2]
+-   **Live Data Streaming**: Reads NMEA sentences from your device and updates the plots as new data arrives.
+-   **Dual-Plot Visualization**:
+    -   A **3D scatter plot** visualizes the device's path in terms of Longitude, Latitude, and Altitude.
+    -   A **2D line graph** shows the real-time changes in Altitude.
+-   **Simple and Self-Contained**: The entire application is built with basic HTML and JavaScript, making it easy to understand and modify.
+
+## How It Works
+
+1.  **Connect to Device**: Clicking the "Connect to Device" button prompts you to select a serial port to connect to. This initiates a connection with your Arduino or other serial device. [3]
+2.  **Data Reception**: The browser listens for incoming data from the serial port. It is configured to read NMEA sentences, which are a standard format for GPS data.
+3.  **Data Parsing**: The JavaScript code specifically looks for `$GNGGA` sentences, which contain essential fix data. [4, 8, 9]
+4.  **Coordinate Conversion**: The latitude and longitude, which are in a Degrees Minutes format in the NMEA sentence, are converted to decimal degrees for plotting.
+5.  **Live Plotting**: The extracted latitude, longitude, and altitude are then plotted on the 3D graph, and the altitude is simultaneously plotted on the 2D graph. Plotly.js handles the dynamic updating of these plots.
+
+## Setup and Usage
+
+### Prerequisites
+
+-   A modern web browser that supports the Web Serial API (e.g., Google Chrome, Microsoft Edge).
+-   An Arduino or similar microcontroller with a GPS module connected.
+-   The Arduino must be programmed to output GPS data in the NMEA format (specifically `$GNGGA` sentences) over its serial connection.
+
+
 
 
 
