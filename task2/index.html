@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Data Plotter</title>
+
+    <!-- Import the Plotly.js library for graphing -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+            color: #333;
+        }
+        .plot-container {
+            width: 90%;
+            max-width: 800px;
+            height: 450px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            font-size: 1.1em;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Live Serial Data Plotter</h1>
+    <p>Click the button below to connect to a serial device and visualize its data.</p>
+
+    <!-- This button will start the Web Serial connection process -->
+    <button id="connectButton">Connect to Device</button>
+
+    <!-- Container for the new 2D Altitude Plot -->
+    <div id="plot2d-container" class="plot-container"></div>
+    
+    <!-- Container for the original 3D GPS Plot -->
+    <div id="plot3d-container" class="plot-container"></div>
+
+
+    <!-- Link to our JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
